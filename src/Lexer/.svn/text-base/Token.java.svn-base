@@ -1,0 +1,52 @@
+package Lexer;
+
+public class Token {
+	private String word;
+	private DataType.TokenType tokenType;
+	private DataType.SemanCode semanCode;
+	private int lineNum, colNum;
+	
+	public Token() { }
+	public Token(String word, DataType.TokenType tokenType, DataType.SemanCode semanCode, int lineNum, int colNum) {
+		setWord(word);
+		setTokenType(tokenType);
+		setSemanCode(semanCode);
+		setLineNum(lineNum);
+		setColNum(colNum);
+	}
+	
+	public void setWord(String newWord) {
+		word = newWord;
+	}
+	public String getWord() {
+		return word;
+	}
+	
+	public void setTokenType(DataType.TokenType newTokenType) {
+		tokenType = newTokenType;
+	}
+	public DataType.TokenType getTokenType() {
+		return tokenType;
+	}
+	
+	public void setSemanCode(DataType.SemanCode newSemanCode) {
+		semanCode = newSemanCode;
+	}
+	public DataType.SemanCode getSemanCode() {
+		return semanCode;
+	}
+	
+	public void setLineNum(int newLineNum) {
+		lineNum = newLineNum;
+	}
+	public int getLineNum() {
+		return lineNum;
+	}
+	
+	public void setColNum(int newColNum) {
+		colNum = newColNum;
+	}
+	public int getColNum() {
+		return colNum;
+	}
+}

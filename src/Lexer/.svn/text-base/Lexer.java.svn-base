@@ -1,0 +1,37 @@
+package Lexer;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Lexer {
+	private Scanner scanner;
+	MyFile file;
+	public ArrayList<Token> tokenList = new ArrayList<Token>();
+	public ArrayList<Error> errorList = new ArrayList<Error>();
+	
+	public Lexer(File f) {
+		file = new MyFile(f);
+	}
+	
+	public void execute() throws IOException {
+		scanner = new Scanner(file);
+		scanner.scan();
+		tokenList = scanner.getTokenList();
+		errorList = scanner.getErrorList();
+		if(errorList.size() != 0) {
+			System.out.println("There are some errors:");
+			Error error;
+			for(int i = 0;i < errorList.size(); ++i) {
+				error = errorList.get(i);
+				System.out.println("Line:" + error.getLineNum() + ",Col:" + error.getColNum() + ":" + error.getMsg());
+			}
+		}
+		Token token;
+		System.out.println("Tokenlist:");
+		for(int i = 0;i < tokenList.size(); ++i) {
+			token = tokenList.get(i);
+			System.out.println("Line:" + token.getLineNum() + ",Col:" + token.getColNum() + ":" + token.getTokenType() + " " + token.getWord());
+		}
+	}	
+}

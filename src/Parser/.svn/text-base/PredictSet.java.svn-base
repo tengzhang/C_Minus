@@ -1,0 +1,303 @@
+package Parser;
+
+import java.util.HashMap;
+
+/**
+ * PredictSet
+ * 保存所有的predict集
+ * @author zhangteng
+ *
+ */
+/**
+ * Modufied at 2013/4/6
+ * @author CuiYuan
+ *
+ */
+public class PredictSet {
+
+	private HashMap<String, Integer> predictSet = new HashMap<String, Integer>();
+
+	public PredictSet() {
+		setPredictSet();
+	}
+
+	public void setPredictSet() {
+		predictSet.put("program int",0);
+		predictSet.put("program void",0);
+		predictSet.put("program {",0);
+
+		predictSet.put("declaration-list int",1);
+		predictSet.put("declaration-list void",1);
+		predictSet.put("declaration-list {",1);
+
+		predictSet.put("declaration-list-left int",3);
+		predictSet.put("declaration-list-left void",3);
+		predictSet.put("declaration-list-left {",3);
+		predictSet.put("declaration-list-left EOF", 2);
+		
+		predictSet.put("declaration int",4);
+		predictSet.put("declaration void",4);
+		predictSet.put("declaration {",5);
+
+		predictSet.put("type-specifier int",6);
+		predictSet.put("type-specifier void",7);
+
+		predictSet.put("declaration-sub ;",8);
+		predictSet.put("declaration-sub (",9);
+		predictSet.put("declaration-sub [",8);
+
+		predictSet.put("params int",10);
+		predictSet.put("params void",11);
+
+		predictSet.put("param-list int",12);
+		predictSet.put("param-list void",12);
+
+		predictSet.put("param-list-sub ,",13);
+		predictSet.put("param-list-sub )",14);
+
+		predictSet.put("param int",15);
+		predictSet.put("param void",15);
+
+		predictSet.put("param-sub ,",16);
+		predictSet.put("param-sub )",16);
+		predictSet.put("param-sub [",17);
+
+		predictSet.put("compound-stmt {",18);
+
+		predictSet.put("local-declarations if",20);
+		predictSet.put("local-declarations else", 20);
+		predictSet.put("local-declarations int",19);
+		predictSet.put("local-declarations return",20);
+		predictSet.put("local-declarations void",19);
+		predictSet.put("local-declarations while",20);
+		predictSet.put("local-declarations ;",20);
+		predictSet.put("local-declarations (",20);
+		predictSet.put("local-declarations {",20);
+		predictSet.put("local-declarations }",20);
+		predictSet.put("local-declarations IDENTIFIER",20);
+		predictSet.put("local-declarations NUMBER",20);
+
+		predictSet.put("var-declaration int",21);
+		predictSet.put("var-declaration void",21);
+
+		predictSet.put("var-declaration-sub ;",22);
+		predictSet.put("var-declaration-sub [",23);
+
+		predictSet.put("statement-list if",24);
+		predictSet.put("statement-list return",24);
+		predictSet.put("statement-list while",24);
+		predictSet.put("statement-list ;",24);
+		predictSet.put("statement-list (",24);
+		predictSet.put("statement-list {",24);
+		predictSet.put("statement-list }",25);
+		predictSet.put("statement-list IDENTIFIER",24);
+		predictSet.put("statement-list NUMBER",24);
+
+		predictSet.put("statement if",28);
+		predictSet.put("statement return",30);
+		predictSet.put("statement while",29);
+		predictSet.put("statement ;",26);
+		predictSet.put("statement (",26);
+		predictSet.put("statement {",27);
+		predictSet.put("statement IDENTIFIER",26);
+		predictSet.put("statement NUMBER",26);
+
+		predictSet.put("expression-stmt ;",32);
+		predictSet.put("expression-stmt (",31);
+		predictSet.put("expression-stmt IDENTIFIER",31);
+		predictSet.put("expression-stmt NUMBER",31);
+
+		predictSet.put("expression (",34);
+		predictSet.put("expression IDENTIFIER",33);
+		predictSet.put("expression NUMBER",35);
+
+		predictSet.put("expression-none +",36);
+		predictSet.put("expression-none -",36);
+		predictSet.put("expression-none *",36);
+		predictSet.put("expression-none /",36);
+		predictSet.put("expression-none <",36);
+		predictSet.put("expression-none <=",36);
+		predictSet.put("expression-none >",36);
+		predictSet.put("expression-none >=",36);
+		predictSet.put("expression-none ==",36);
+		predictSet.put("expression-none !=",36);
+		predictSet.put("expression-none ;",36);
+		predictSet.put("expression-none ,",36);
+		predictSet.put("expression-none )",36);
+		predictSet.put("expression-none ]",36);
+
+		predictSet.put("expression-sub +",37);
+		predictSet.put("expression-sub -",37);
+		predictSet.put("expression-sub *",37);
+		predictSet.put("expression-sub /",37);
+		predictSet.put("expression-sub <",37);
+		predictSet.put("expression-sub <=",37);
+		predictSet.put("expression-sub >",37);
+		predictSet.put("expression-sub >=",37);
+		predictSet.put("expression-sub ==",37);
+		predictSet.put("expression-sub !=",37);
+		predictSet.put("expression-sub =",37);
+		predictSet.put("expression-sub ;",37);
+		predictSet.put("expression-sub ,",37);
+		predictSet.put("expression-sub (",38);
+		predictSet.put("expression-sub )",37);
+		predictSet.put("expression-sub [",37);
+		predictSet.put("expression-sub ]",37);
+
+		predictSet.put("expression-sub-sub +",40);
+		predictSet.put("expression-sub-sub -",40);
+		predictSet.put("expression-sub-sub *",40);
+		predictSet.put("expression-sub-sub /",40);
+		predictSet.put("expression-sub-sub <",40);
+		predictSet.put("expression-sub-sub <=",40);
+		predictSet.put("expression-sub-sub >",40);
+		predictSet.put("expression-sub-sub >=",40);
+		predictSet.put("expression-sub-sub ==",40);
+		predictSet.put("expression-sub-sub !=",40);
+		predictSet.put("expression-sub-sub =",39);
+		predictSet.put("expression-sub-sub ;",40);
+		predictSet.put("expression-sub-sub ,",40);
+		predictSet.put("expression-sub-sub )",40);
+		predictSet.put("expression-sub-sub ]",40);
+
+		predictSet.put("var-sub +",41);
+		predictSet.put("var-sub -",41);
+		predictSet.put("var-sub *",41);
+		predictSet.put("var-sub /",41);
+		predictSet.put("var-sub <",41);
+		predictSet.put("var-sub <=",41);
+		predictSet.put("var-sub >",41);
+		predictSet.put("var-sub >=",41);
+		predictSet.put("var-sub ==",41);
+		predictSet.put("var-sub !=",41);
+		predictSet.put("var-sub =",41);
+		predictSet.put("var-sub ;",41);
+		predictSet.put("var-sub ,",41);
+		predictSet.put("var-sub )",41);
+		predictSet.put("var-sub [",42);
+		predictSet.put("var-sub ]",41);
+
+		predictSet.put("simple-expression-sub <",43);
+		predictSet.put("simple-expression-sub <=",43);
+		predictSet.put("simple-expression-sub >",43);
+		predictSet.put("simple-expression-sub >=",43);
+		predictSet.put("simple-expression-sub ==",43);
+		predictSet.put("simple-expression-sub !=",43);
+		predictSet.put("simple-expression-sub ;",44);
+		predictSet.put("simple-expression-sub ,",44);
+		predictSet.put("simple-expression-sub )",44);
+		predictSet.put("simple-expression-sub ]",44);
+
+		predictSet.put("relop <",46);
+		predictSet.put("relop <=",45);
+		predictSet.put("relop >",47);
+		predictSet.put("relop >=",48);
+		predictSet.put("relop ==",49);
+		predictSet.put("relop !=",50);
+
+		predictSet.put("addictive-expression (",51);
+		predictSet.put("addictive-expression IDENTIFIER",51);
+		predictSet.put("addictive-expression NUMBER",51);
+
+		predictSet.put("addictive-expression-sub +",52);
+		predictSet.put("addictive-expression-sub -",52);
+		predictSet.put("addictive-expression-sub <",53);
+		predictSet.put("addictive-expression-sub <=",53);
+		predictSet.put("addictive-expression-sub >",53);
+		predictSet.put("addictive-expression-sub >=",53);
+		predictSet.put("addictive-expression-sub ==",53);
+		predictSet.put("addictive-expression-sub !=",53);
+		predictSet.put("addictive-expression-sub ;",53);
+		predictSet.put("addictive-expression-sub ,",53);
+		predictSet.put("addictive-expression-sub )",53);
+		predictSet.put("addictive-expression-sub ]",53);
+
+		predictSet.put("addop +",54);
+		predictSet.put("addop -",55);
+
+		predictSet.put("term (",56);
+		predictSet.put("term IDENTIFIER",56);
+		predictSet.put("term NUMBER",56);
+
+		predictSet.put("term-sub +",58);
+		predictSet.put("term-sub -",58);
+		predictSet.put("term-sub *",57);
+		predictSet.put("term-sub /",57);
+		predictSet.put("term-sub <",58);
+		predictSet.put("term-sub <=",58);
+		predictSet.put("term-sub >",58);
+		predictSet.put("term-sub >=",58);
+		predictSet.put("term-sub ==",58);
+		predictSet.put("term-sub !=",58);
+		predictSet.put("term-sub ;",58);
+		predictSet.put("term-sub ,",58);
+		predictSet.put("term-sub )",58);
+		predictSet.put("term-sub ]",58);
+
+		predictSet.put("mulop *",59);
+		predictSet.put("mulop /",60);
+
+		predictSet.put("factor (",61);
+		predictSet.put("factor IDENTIFIER",62);
+		predictSet.put("factor NUMBER",63);
+
+		predictSet.put("factor-sub +",65);
+		predictSet.put("factor-sub -",65);
+		predictSet.put("factor-sub *",65);
+		predictSet.put("factor-sub /",65);
+		predictSet.put("factor-sub <",65);
+		predictSet.put("factor-sub <=",65);
+		predictSet.put("factor-sub >",65);
+		predictSet.put("factor-sub >=",65);
+		predictSet.put("factor-sub ==",65);
+		predictSet.put("factor-sub !=",65);
+		predictSet.put("factor-sub ;",65);
+		predictSet.put("factor-sub ,",65);
+		predictSet.put("factor-sub (",64);
+		predictSet.put("factor-sub )",65);
+		predictSet.put("factor-sub [",65);
+		predictSet.put("factor-sub ]",65);
+
+		predictSet.put("selection-stmt if",66);
+
+		predictSet.put("selection-stmt-sub else",68);
+		predictSet.put("selection-stmt-sub if",67);
+		predictSet.put("selection-stmt-sub return",67);
+		predictSet.put("selection-stmt-sub while",67);
+		predictSet.put("selection-stmt-sub ;",67);
+		predictSet.put("selection-stmt-sub (",67);
+		predictSet.put("selection-stmt-sub {",67);
+		predictSet.put("selection-stmt-sub }",67);
+		predictSet.put("selection-stmt-sub IDENTIFIER",67);
+		predictSet.put("selection-stmt-sub NUMBER",67);
+
+		predictSet.put("iteration-stmt while",69);
+
+		predictSet.put("return-stmt return",70);
+
+		predictSet.put("return-stmt-sub ;",71);
+		predictSet.put("return-stmt-sub (",72);
+		predictSet.put("return-stmt-sub IDENTIFIER",72);
+		predictSet.put("return-stmt-sub NUMBER",72);
+
+		predictSet.put("args (",73);
+		predictSet.put("args )",74);
+		predictSet.put("args IDENTIFIER",73);
+		predictSet.put("args NUMBER",73);
+
+		predictSet.put("arg-list (",75);
+		predictSet.put("arg-list IDENTIFIER",75);
+		predictSet.put("arg-list NUMBER",75);
+
+		predictSet.put("arg-list-left ,",76);
+		predictSet.put("arg-list-left )",77);
+	}
+
+	public int getProductionId(String nonTerminal, String terminal) {
+		if(predictSet.get(nonTerminal + " " + terminal) == null) {
+			return -1;
+		} else {
+			return predictSet.get(nonTerminal + " " + terminal);		
+		}
+	}
+}

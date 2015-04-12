@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 36
+/svn/C_minus/!svn/ver/20/C_Minus/lib
+END
+substance.jar
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/C_minus/!svn/ver/20/C_Minus/lib/substance.jar
+END
+swt.jar
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/svn/C_minus/!svn/ver/20/C_Minus/lib/swt.jar
+END
+swt-debug.jar
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/svn/C_minus/!svn/ver/20/C_Minus/lib/swt-debug.jar
+END

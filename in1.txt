@@ -1,0 +1,6 @@
+int b;
+int a[10];
+void c;
+int main(void) {
+b = c+a[9];
+}

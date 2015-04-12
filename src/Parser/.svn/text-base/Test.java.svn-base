@@ -1,0 +1,26 @@
+package Parser;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import Lexer.Error;
+import Lexer.Lexer;
+
+public class Test {
+	public static void main(String[] args) throws IOException {
+		File file = new File("E:/in.txt");
+		Lexer lexer = new Lexer(file);
+		lexer.execute();
+		Parser parser = new Parser(lexer.tokenList);
+		parser.execute();
+		ArrayList<Error> errorList = parser.getErrorList();
+		ParserTree parserTree = parser.getParserTree();
+		if(errorList.size() != 0) {
+			for(Error error : errorList) {
+				System.out.println("line:" + error.getLineNum() + error.getMsg());
+			}
+		}
+		parserTree.outPut();
+	}
+}

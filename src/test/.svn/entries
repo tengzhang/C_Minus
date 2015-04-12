@@ -1,0 +1,63 @@
+10
+
+dir
+0
+https://zt/svn/C_minus/C_Minus/src/test
+https://zt/svn/C_minus
+add
+
+
+
+
+
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+cbff4633-9f22-f948-b7a5-82d059b1b666
+
+Main.java
+file
+
+
+
+add
+
+ParserTest.java
+file
+
+
+
+add
+
+SemanticTest.java
+file
+
+
+
+add
+
+TestA.java
+file
+
+
+
+add
+
+TestMain.java
+file
+
+
+
+add
+

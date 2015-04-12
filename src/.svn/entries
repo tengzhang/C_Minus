@@ -1,0 +1,58 @@
+10
+
+dir
+37
+https://zt/svn/C_minus/C_Minus/src
+https://zt/svn/C_minus
+
+
+
+2013-04-08T07:45:30.351130Z
+37
+iris
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cbff4633-9f22-f948-b7a5-82d059b1b666
+
+GUI
+dir
+
+Lexer
+dir
+
+Parser
+dir
+
+Semantic
+dir
+
+
+
+add
+
+commons
+dir
+
+
+
+add
+
+test
+dir
+
+
+
+add
+

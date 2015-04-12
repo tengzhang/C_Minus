@@ -1,0 +1,51 @@
+package Parser;
+
+import java.util.ArrayList;
+
+/**
+ * ParserTreeNode
+ * 将语法树进行封装
+ * @author zhangteng
+ *
+ */
+/**
+ * 使用线性结构存储树，由于事先不知道一共有多少个节点，所以不能用数组，采用ArrayList
+ * @author Iris
+ *
+ */
+public class ParserTree {
+
+	private int nodeNum;
+	private ArrayList<ParserTreeNode> parserTree = new ArrayList<ParserTreeNode>();
+	
+	public ParserTree() {
+		nodeNum = 0;
+	}
+	
+	public void addNode(ParserTreeNode node) {
+		nodeNum ++;
+		parserTree.add(node);
+	}
+	
+	public void setNode(int ix, ParserTreeNode node) {
+		parserTree.set(ix, node);
+	}
+	
+	public ParserTreeNode getNode(int ix) {
+		return parserTree.get(ix);
+	}
+	
+	public int size() {
+		return nodeNum;
+	}
+	
+	public void outPut() {
+		for(ParserTreeNode node : parserTree) {
+			System.out.print(node.getId() + " " + node.getType() + " " + node.getValue() + " " + node.getParentId());
+			for(int i = 0;i < node.getChildNum(); ++i) {
+				System.out.print(" " + node.getChildID(i));
+			}
+			System.out.println();
+		}
+	}
+}
